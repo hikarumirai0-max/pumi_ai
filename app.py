@@ -78,7 +78,7 @@ def run_text_search(user_question: str):
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         text=True,
-        cwd=r"C:\PUMI"
+        cwd=r"."
     )
     return process.communicate(input=user_question + "\nexit\n")
 
