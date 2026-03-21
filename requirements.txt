@@ -1,3 +1,5 @@
 streamlit
 openai
 pillow
+gspread
+google-auth
