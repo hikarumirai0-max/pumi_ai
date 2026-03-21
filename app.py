@@ -4,6 +4,7 @@ import time
 import base64
 import subprocess
 from typing import List
+import os
 
 import streamlit as st
 from PIL import Image
