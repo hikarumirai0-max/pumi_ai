@@ -445,7 +445,7 @@ if run_clicked:
                 st.text(str(e))
 
     elif question:
-    st.warning("배포 버전에서는 텍스트 검색을 잠시 비활성화했어요. 사진 업로드 기능부터 먼저 사용해 주세요.")
+        st.warning("배포 버전에서는 텍스트 검색을 잠시 비활성화했어요. 사진 업로드 기능부터 먼저 사용해 주세요.")
 
     else:
         st.warning("질문을 입력하거나 사진을 업로드해줘.")
