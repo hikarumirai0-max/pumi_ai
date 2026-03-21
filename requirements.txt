@@ -3,4 +3,4 @@ openai
 pillow
 gspread
 google-auth
-# force rebuild
+oauth2client
