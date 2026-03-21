@@ -446,7 +446,7 @@ if run_clicked:
                 st.text(str(e))
 
     elif question:
-    with st.spinner("검색 중..."):
+       with st.spinner("검색 중..."):
         try:
             output, error = run_text_search(question)
 
