@@ -4,6 +4,7 @@ import time
 import base64
 from typing import List
 import os
+import sys
 import subprocess
 
 import streamlit as st
@@ -35,7 +36,7 @@ def optimize_image(uploaded_file, max_width: int = 900, jpeg_quality: int = 55) 
 
 def run_text_search(user_question):
     process = subprocess.Popen(
-        ["python", "main.py"],
+        [sys.executable, "main.py"],
         stdin=subprocess.PIPE,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
