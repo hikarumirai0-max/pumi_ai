@@ -21,6 +21,7 @@ st.title("PUMI AI")
 # 유틸
 # ================================
 def optimize_image(uploaded_file, max_width: int = 900, jpeg_quality: int = 55) -> str:
+    image = Image.open(uploaded_file)
 
     width, height = image.size
     if width > max_width:
