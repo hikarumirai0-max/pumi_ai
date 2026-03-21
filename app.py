@@ -2,7 +2,6 @@ import re
 import io
 import time
 import base64
-import subprocess
 from typing import List
 import os
 
@@ -70,17 +69,6 @@ def call_openai_with_retry(messages, model="gpt-4o-mini", max_tokens=1600, retri
 
     raise last_error
 
-
-def run_text_search(user_question: str):
-    process = subprocess.Popen(
-        ["python", "main.py"],
-        stdin=subprocess.PIPE,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        text=True,
-        cwd=r"."
-    )
-    return process.communicate(input=user_question + "\nexit\n")
 
 import re
 
@@ -457,44 +445,7 @@ if run_clicked:
                 st.text(str(e))
 
     elif question:
-        with st.spinner("검색 중..."):
-            try:
-                output, error = run_text_search(question)
+    st.warning("배포 버전에서는 텍스트 검색을 잠시 비활성화했어요. 사진 업로드 기능부터 먼저 사용해 주세요.")
 
-                st.subheader("🔎 검색 결과")
-                st.text_area(
-                    "검색 결과",
-                    value=output if output else "없음",
-                    height=500,
-                    key="search_result_box"
-                )
-
-                if error:
-                    st.subheader("에러")
-                    st.text(error)
-
-            except Exception as e:
-                st.subheader("에러")
-                st.text(str(e))
-
-    elif question:
-        with st.spinner("검색 중..."):
-            try:
-                output, error = run_text_search(question)
-
-                st.subheader("🔎 검색 결과")
-                st.text_area(
-    "검색 결과",
-    value=output if output else "없음",
-    height=500
-)
-
-                if error:
-                    st.subheader("에러")
-                    st.text(error)
-
-            except Exception as e:
-                st.subheader("에러")
-                st.text(str(e))
     else:
         st.warning("질문을 입력하거나 사진을 업로드해줘.")
