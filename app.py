@@ -4,6 +4,7 @@ import time
 import base64
 from typing import List
 import os
+import subprocess
 
 import streamlit as st
 from PIL import Image
@@ -31,6 +32,16 @@ def optimize_image(uploaded_file, max_width: int = 900, jpeg_quality: int = 55) 
     buf = io.BytesIO()
     image.save(buf, format="JPEG", quality=jpeg_quality, optimize=True)
     return base64.b64encode(buf.getvalue()).decode("utf-8")
+
+def run_text_search(user_question):
+    process = subprocess.Popen(
+        ["python", "main.py"],
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True
+    )
+    return process.communicate(input=user_question + "\nexit\n")
 
 
 def build_image_contents(files) -> List[dict]:
@@ -446,7 +457,7 @@ if run_clicked:
                 st.text(str(e))
 
     elif question:
-       with st.spinner("검색 중..."):
+      with st.spinner("검색 중..."):
         try:
             output, error = run_text_search(question)
 
