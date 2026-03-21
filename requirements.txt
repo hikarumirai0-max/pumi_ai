@@ -1,5 +1,5 @@
 streamlit
 openai
 pillow
-gspread==6.1.2
-google-auth==2.38.0
+gspread
+google-auth
