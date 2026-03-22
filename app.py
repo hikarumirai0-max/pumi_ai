@@ -401,7 +401,7 @@ uploaded_files = st.file_uploader(
 
 # 🔥 여기로 빼야 함 (if 밖으로!)
 st.subheader("양식 선택")
-mode = st.radio("", ["기존 양식", "점검 양식"], horizontal=True)
+mode = st.radio("양식 선택", ["기존 양식", "점검 양식"], horizontal=True, label_visibility="collapsed")
 
 # 📌 버튼
 run_clicked = st.button("🚀 검색", key="run_btn", use_container_width=True)
