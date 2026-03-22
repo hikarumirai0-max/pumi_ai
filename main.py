@@ -42,7 +42,7 @@ gs_client = gspread.authorize(creds)
 # 꼭 네 시트 URL로 바꿔
 SHEET_URL = "https://docs.google.com/spreadsheets/d/1NoBl8BXmSU8KEjuap2FAspD9cx2ANkNzgM1FRKmxn-4/edit?gid=0#gid=0"
 
-sheet = gs_client.open_by_url(SHEET_URL).sheet1
+sheet = gs_client.open_by_key("1NoBI8BXmSU8KEjuap2FAspD9cx2ANkNzgM1FRKmxn-4").sheet1
 
 
 def load_data():
