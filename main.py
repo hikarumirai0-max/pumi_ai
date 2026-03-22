@@ -28,7 +28,14 @@ scope = [
     "https://www.googleapis.com/auth/drive"
 ]
 
-creds = Credentials.from_service_account_file("credentials.json", scopes=scope)
+import streamlit as st
+
+creds_dict = json.loads(st.secrets["gcp_service_account"])
+
+creds = Credentials.from_service_account_info(
+    creds_dict,
+    scopes=scope
+)
 gs_client = gspread.authorize(creds)
 
 # 꼭 네 시트 URL로 바꿔
