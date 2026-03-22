@@ -30,7 +30,7 @@ scope = [
 
 import streamlit as st
 
-creds_dict = json.loads(st.secrets["gcp_service_account"])
+creds_dict = dict(st.secrets["gcp_service_account"])
 
 creds = Credentials.from_service_account_info(
     creds_dict,
