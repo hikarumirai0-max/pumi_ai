@@ -46,7 +46,7 @@ sheet = gs_client.open_by_key("1rl3HMS5GdLBXf57-MDBgF5y0DXxoBsZFvtiZE0jwaqY").sh
 
 
 def load_data():
-    return sheet.get_all_records()
+    return sheet.get_all_records(head=2)
 
 
 def get_headers():
